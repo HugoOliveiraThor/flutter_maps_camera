@@ -10,9 +10,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_map: ^6.0.0 # Para o mapa
-  latlong2: ^0.9.0 # Para manipulação de coordenadas
-  geolocator: ^11.0.0 # Para obter a localização do usuário
+  flutter_map: ^6.0.0 # Map
+  latlong2: ^0.9.0 # Manipulate the coordenates
+  geolocator: ^11.0.0 # Get the localization of the user
   cupertino_icons: ^1.0.8
 
 dev_dependencies:

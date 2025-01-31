@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
-import '../services/location_service.dart'; // Importe o serviço de localização
+import '../services/location_service.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -11,18 +11,16 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
-  LatLng? userLocation; // Armazena a localização do usuário
-  bool isLoading = true; // Controla o estado de carregamento
-  final LocationService _locationService =
-      LocationService(); // Instância do serviço
+  LatLng? userLocation;
+  bool isLoading = true;
+  final LocationService _locationService = LocationService();
 
   @override
   void initState() {
     super.initState();
-    _getUserLocation(); // Obtém a localização ao iniciar o app
+    _getUserLocation(); // Get informations about localization when start the app
   }
 
-  // Função para obter a localização do usuário
   Future<void> _getUserLocation() async {
     final location = await _locationService.getCurrentLocation();
     setState(() {
@@ -39,12 +37,11 @@ class _MapScreenState extends State<MapScreen> {
         backgroundColor: Colors.blue[800],
       ),
       body: isLoading
-          ? const Center(
-              child: CircularProgressIndicator()) // Mostra um loading
+          ? const Center(child: CircularProgressIndicator())
           : FlutterMap(
               options: MapOptions(
                 center:
-                    userLocation, // Centraliza o mapa na localização do usuário
+                    userLocation, // Centralize the map in center of the screen
                 zoom: 15.0,
               ),
               children: [
@@ -58,8 +55,7 @@ class _MapScreenState extends State<MapScreen> {
                     Marker(
                       width: 40.0,
                       height: 40.0,
-                      point:
-                          userLocation!, // Marcador na localização do usuário
+                      point: userLocation!, // Mark in the location of the user
                       child: const Icon(
                         Icons.location_pin,
                         color: Colors.red,
@@ -71,7 +67,8 @@ class _MapScreenState extends State<MapScreen> {
               ],
             ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _getUserLocation, // Atualiza a localização ao clicar
+        onPressed:
+            _getUserLocation, // Update localization when click in the map
         child: const Icon(Icons.my_location),
       ),
     );
