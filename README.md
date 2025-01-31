@@ -53,7 +53,7 @@ XML
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     ```
 
-# Create the `file_paths.xml` file:
+### Create the `file_paths.xml` file:
 
 Create an `xml` folder inside `android/app/src/main/res/`.
 Inside this folder, create a file named `file_paths.xml` with the following content:
@@ -75,23 +75,24 @@ lib/
 └── camera_service.dart
 ```
 
-main.dart: Main app file, responsible for starting the application.
-screens/map_screen.dart: Map screen, where the map and camera are displayed.
-services/location_service.dart: Service for obtaining the user's location.
-services/camera_service.dart: Service for accessing the camera and photo gallery.
+- main.dart: Main app file, responsible for starting the application.
+- screens/map_screen.dart: Map screen, where the map and camera are displayed.
+- services/location_service.dart: Service for obtaining the user's location.
+- services/camera_service. dart: Service for accessing the camera and photo gallery.
 
 How to Contribute
 Fork the project.
-Create a branch for your feature (git checkout -b feature/new-feature).
-Commit your changes (git commit -m 'Adds new feature').
-Push to the branch (git push origin feature/new-feature).
-Open a Pull Request.
-License
-This project is licensed under the MIT License. See the LICENSE file for more details.
+
+- Create a branch for your feature (git checkout -b feature/new-feature).
+- Commit your changes (git commit -m 'Adds new feature').
+- Push to the branch (git push origin feature/new-feature).
+  Open a Pull Request.
+  License
+  This project is licensed under the MIT License. See the LICENSE file for more details.
 
 Contact
 If you have any questions or suggestions, feel free to contact:
 
-Name: Hugo Oliveira
-Email: hugooliveirahenrique@gmail.com
-GitHub: HugoOliveiraThor
+- Name: Hugo Oliveira
+- Email: hugooliveirahenrique@gmail.com
+- GitHub: HugoOliveiraThor
