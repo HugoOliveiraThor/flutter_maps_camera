@@ -14,6 +14,7 @@ class _MapScreenState extends State<MapScreen> {
   LatLng? userLocation;
   bool isLoading = true;
   final LocationService _locationService = LocationService();
+  final MapController _mapController = MapController();
 
   @override
   void initState() {
@@ -22,23 +23,33 @@ class _MapScreenState extends State<MapScreen> {
   }
 
   Future<void> _getUserLocation() async {
+    print("Getting the user's location...");
     final location = await _locationService.getCurrentLocation();
+    print("Location obtained: $location");
     setState(() {
       userLocation = location;
       isLoading = false;
     });
+    // Move the map to a new location
+    if (userLocation != null) {
+      print("Moving the map to: $userLocation");
+      _mapController.move(userLocation!, 15.0);
+    } else {
+      print("User location is null");
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Minha Localização no Mapa'),
+        title: const Text('OpenStreetMaps and Camera'),
         backgroundColor: Colors.blue[800],
       ),
       body: isLoading
           ? const Center(child: CircularProgressIndicator())
           : FlutterMap(
+              mapController: _mapController,
               options: MapOptions(
                 center:
                     userLocation, // Centralize the map in center of the screen
